@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>About</h1>
+
+        <div class = "about-paragraph">
+            <p>This is a tool I made so you can generate a random loadout in Escape from Tarkov</p>
+            <p>Developed by Josh</p> 
+        </div>
+
+        <div class="button-container">
+            <button type="button" id="backButton">back</button>
+        </div>
+
+        <!--event listener for the back button for the about page-->
+        <script>
+            document.getElementById('backButton').addEventListener('click', function() {
+                window.location.href = 'main.html';
+            });
+        </script>
+
+    </body>
+</html>
