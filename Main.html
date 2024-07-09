@@ -14,27 +14,32 @@
 </head>
 
 <body>
-    <header class="text-center my-4">
-        <h1>Loadout Generator</h1>
-        <a href="about.html" class="btn btn-info">About</a>
-    </header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+        <div class="container-fluid py-3 position-relative">
+            <a class="navbar-brand position-absolute top-50 start-50 translate-middle" href="#">Loadout Generator</a>
+            <a class="btn btn-info position-absolute top-50 end-0 translate-middle-y me-3" href="about.html">About</a>
+        </div>
+    </nav>
 
     <div class="container">
         <div class="row">
             <!-- Card for Generate Loadout Button -->
-            <div class="col-md-3 mb-4">
+            <div class="row justify-content-center mb-4">
+            <div class="col-md-3 text-center">
                 <div class="card">
                     <div class="card-body text-center">
                         <button type="button" id="myButton" class="btn btn-primary mb-2">Generate Loadout</button>
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="selectAllCheckbox">
+                        <div class="form-check d-flex align-items-center justify-content-center">
+                            <input type="checkbox" class="form-check-input me-2" id="selectAllCheckbox">
                             <label class="form-check-label" for="selectAllCheckbox">Select all</label>
+                        </div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Card for Armor Checkboxes -->
+            <div class="row d-flex justify-content-center">
             <div class="col-md-3 mb-4">
                 <div class="card">
                     <div class="card-body">
@@ -154,6 +159,7 @@
                 </div>
             </div>
         </div>
+    </div>
 
         <div id="buttonOutput"></div><!--Container for the button click text that will appear-->
     </div>

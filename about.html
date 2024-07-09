@@ -4,29 +4,28 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>About</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     </head>
     <body>
         <h1>About</h1>
 
-        <div class = "about-paragraph">
+        <div class="about-paragraph">
             <p>This is a tool I made so you can generate a random loadout in Escape from Tarkov</p>
-            <p>Developed by Josh</p> 
+            <p>Developed by Josh</p>
         </div>
 
         <div class="button-container">
-            <button type="button" id="backButton">back</button>
+            <a class="btn btn-info" href="main.html">Back</a>
         </div>
 
-        <!--event listener for the back button for the about page-->
-        <script>
-            document.getElementById('backButton').addEventListener('click', function() {
-                window.location.href = 'main.html';
-            });
-        </script>
-
+        <!-- Optional JavaScript; choose one of the two! -->
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     </body>
 </html>
