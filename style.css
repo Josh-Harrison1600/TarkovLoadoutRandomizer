@@ -4,6 +4,12 @@ body, html{
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.roboto{
+    font-family: 'Roboto';font-size: 36px !important;
+    font-weight: 700;
+    color: #f8f9fa !important;
+}
+
 .video-background{
     position: fixed;
     top: 0;
@@ -87,10 +93,56 @@ h1{
 
 .randomItemStyle{
     font-size: 30px;
+    color: black;
+    text-shadow: 
+    -0.5px -0.5px 0 white,  
+    0.5px -0.5px 0 white,
+    -0.5px 0.5px 0 white,
+    0.5px 0.5px 0 white,
+    0 -1px 0 white,
+    0 1px 0 white,
+    -1px 0 0 white,
+    1px 0 0 white;
 }
+
+/*outline for all card classes*/
+.card{
+    background: grey !important;
+    opacity: 0.8;
+    border: 3px solid grey !important;
+    
+}
+
+
+/*Styling for when checkboxes are clicked*/
+.form-check input[type="checkbox"]:checked {
+    background-color: #2d4ee0;
+    border-color: #4f17b8;
+    box-shadow: 0 0 5px rgba(24, 123, 236, 0.5); 
+}
+
+/* change color for when the cards are being hovered*/
+.card:hover {
+    background-color: #f0f0f0; 
+    border-color: white !important;
+}
+
+/*hover effect for GitHub icon */
+.fab.fa-github:hover {
+    color: #0056b3; 
+    transition: color 0.3s ease;
+}
+
+
 
 /* About section */
 .about-paragraph{
     text-align: center;
     font-size: 24px;
+    color: #f0f0f0;
+}
+
+.about-body{
+    color: white;
+    background-color: rgb(31, 44, 44) !important;
 }

@@ -1,5 +1,5 @@
 // Variables to hold the loadout data
-let pistols, assaultCarbine, boltAction, marksmanRifle, grenadeLauncher, lmg, SMG, shotgun, ar, armorClass, armorVestClass, tacticalRigClass, helmetClass1, helmetClass2, helmetClass3, helmetClass4, helmetClass5, helmetClass6, headphones, maps, bags;
+let pistols, assaultCarbine, boltAction, marksmanRifle, grenadeLauncher, lmg, SMG, shotgun, ar, armorClass, armorVestClass, tacticalRigClass, helmetClass1, helmetClass2, helmetClass3, helmetClass4, helmetClass5, helmetClass6, maps, bags;
 
 // Fetch the loadout data from the JSON file
 fetch('loadoutData.json')
@@ -32,13 +32,26 @@ fetch('loadoutData.json')
         helmetClass6 = data.helmetClass6;
 
         // Miscellaneous
-        headphones = data.headphones;
         maps = data.maps;
         bags = data.bags;
 
         console.log("Data loaded successfully:", data); // Debugging: Check if data is loaded
     })
     .catch(error => console.error('Error fetching JSON data:', error));
+
+//Function to validate if armor vest and rig are both selected
+function validateSelections(){
+    const armorVestChecked = document.getElementById('armorCheckbox').checked;
+    const armorRigChecked = document.getElementById('armorRigCheckbox').checked;
+    const tacticalRigChecked = document.getElementById('tacticalRigCheckbox').checked;
+
+    if (armorRigChecked && tacticalRigChecked || armorRigChecked && armorVestChecked){
+        alert("'Armored Rig' cannot be selected at the same time as 'Armored Vest' or 'Tactical Rig'");
+        return false;
+    }
+    return true;
+}
+
 
 // Function to select a random item from an array
 function getRandomItem(array) {
@@ -73,10 +86,15 @@ document.getElementById('myButton').addEventListener('click', function() {
     // Check if all data is loaded
     if (!armorClass || !armorVestClass || !tacticalRigClass
         || !helmetClass1 || !helmetClass2 || !helmetClass3 || !helmetClass4 || !helmetClass5 || !helmetClass6 || 
-        !headphones || !maps || !bags || 
+        !maps || !bags || 
         !pistols || !SMG || !shotgun || !ar || !assaultCarbine || !boltAction || !marksmanRifle || !grenadeLauncher || !lmg){
         console.error("Data not loaded yet. Please wait.");
         return;
+    }
+
+    //Validate the user selection
+    if(!validateSelections()){
+        return; //Exit if validation fails
     }
 
     const outputDiv = document.getElementById('buttonOutput');
@@ -102,13 +120,6 @@ document.getElementById('myButton').addEventListener('click', function() {
         [helmetClass1, helmetClass2, helmetClass3, helmetClass4, helmetClass5, helmetClass6]
     );
     appendLoadoutItem(outputDiv, helmetLoadout, "Helmet");
-
-    // Generate and append a random headset
-    const headsetLoadout = getRandomLoadoutItem(
-        ['headphoneCheckbox'],
-        [headphones]
-    );
-    appendLoadoutItem(outputDiv, headsetLoadout, "Headset");
 
     // Generate and append a random armor item
     const armorLoadout = getRandomLoadoutItem(
@@ -141,9 +152,11 @@ document.getElementById('myButton').addEventListener('click', function() {
 
 //Listener for the 'select all' checkbox
 document.getElementById('selectAllCheckbox').addEventListener('change', function(){
-    const checkboxes = document.querySelectorAll('.checkbox-container input[type="checkbox"]');
+    const checkboxes = document.querySelectorAll('.form-check input[type="checkbox"]');
     const isChecked = this.checked;
     checkboxes.forEach(checkbox => {
         checkbox.checked = isChecked;
+
+
     });
 });
